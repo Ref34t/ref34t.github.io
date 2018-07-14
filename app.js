@@ -1,1 +1,1 @@
-TweenMax.to("h1", 1, { x: 100 });
+TweenMax.to("svg", 1, { x: 100 });
