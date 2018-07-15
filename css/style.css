@@ -106,4 +106,5 @@ span,
 i {
   font-family: var(--paragraph-font);
   color: var(--white-color);
+  cursor: pointer;
 }
