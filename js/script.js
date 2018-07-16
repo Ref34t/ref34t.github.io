@@ -192,7 +192,6 @@ function contactBack() {
   contactButton.innerHTML = '<span class="iconspan">Enter</span>';
   contactButton.classList.remove("back");
 }
-
 contactButton.addEventListener("click", function() {
   if (!state) {
     contactEnter();
