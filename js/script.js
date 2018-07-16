@@ -8,29 +8,20 @@ const span = document.querySelectorAll(".iconspan");
 const aboutButton = document.querySelector(".aboutbutton");
 const portfolioButton = document.querySelector(".portfoliobutton");
 const contactButton = document.querySelector(".contactbutton");
+const sectioncontenta = document.querySelector(".section-content-a");
+const sectioncontentp = document.querySelector(".section-content-p");
+const sectioncontentc = document.querySelector(".section-content-c");
 
 // Grapping the enter buttons in array and loop through it to get the right button and apply the mouseenter and mouseleave event
 for (var i = 0; i < icon.length; i++) {
   icon[i].addEventListener("mouseenter", function() {
-    TweenMax.to(this, 0.2, {
-      x: 10,
-      scale: 1.5,
-      rotation: 90,
-      y: 80
-    });
-    TweenMax.to(this.children, 0.2, {
-      opacity: 0
+    TweenMax.to(this, 0.1, {
+      scale: 1.2
     });
   });
   icon[i].addEventListener("mouseleave", function() {
-    TweenMax.to(this, 0.2, {
-      x: 0,
-      scale: 1,
-      y: 0,
-      rotation: 0
-    });
-    TweenMax.to(this.children, 0.2, {
-      opacity: 1
+    TweenMax.to(this, 0.1, {
+      scale: 1
     });
   });
 }
@@ -54,6 +45,9 @@ function aboutEnter() {
   });
   aboutButton.innerHTML = '<span class="iconspan">Back</span>';
   aboutButton.classList.add("back");
+  aboutSection.classList.toggle("section-full");
+  tl.from(sectioncontenta, 0.3, { opacity: 1, x: -2000 });
+  sectioncontenta.style.display = "block";
 }
 function aboutBack() {
   var tl = new TimelineMax();
@@ -77,6 +71,8 @@ function aboutBack() {
   });
   aboutButton.innerHTML = '<span class="iconspan">Enter</span>';
   aboutButton.classList.remove("back");
+  aboutSection.classList.toggle("section-full");
+  sectioncontenta.style.display = "none";
 }
 // Toggle between function of the button
 var state = false;
@@ -109,6 +105,9 @@ function portfolioEnter() {
   });
   portfolioButton.innerHTML = '<span class="iconspan">Back</span>';
   portfolioButton.classList.add("back");
+  portfolioSection.classList.toggle("section-full");
+  sectioncontentp.style.display = "block";
+  tl.from(sectioncontentp, 0.3, { opacity: 0, x: -2000 });
 }
 function portfolioBack() {
   var tl = new TimelineMax();
@@ -134,6 +133,8 @@ function portfolioBack() {
   });
   portfolioButton.innerHTML = '<span class="iconspan">Enter</span>';
   portfolioButton.classList.remove("back");
+  portfolioSection.classList.toggle("section-full");
+  sectioncontentp.style.display = "none";
 }
 
 portfolioButton.addEventListener("click", function() {
@@ -166,6 +167,9 @@ function contactEnter() {
   });
   contactButton.innerHTML = '<span class="iconspan">Back</span>';
   contactButton.classList.add("back");
+  contactSection.classList.toggle("section-full");
+  sectioncontentc.style.display = "block";
+  tl.from(sectioncontentc, 0.3, { opacity: 0, x: -2000 });
 }
 function contactBack() {
   var tl = new TimelineMax();
@@ -191,6 +195,8 @@ function contactBack() {
   });
   contactButton.innerHTML = '<span class="iconspan">Enter</span>';
   contactButton.classList.remove("back");
+  contactSection.classList.toggle("section-full");
+  sectioncontentc.style.display = "none";
 }
 contactButton.addEventListener("click", function() {
   if (!state) {
