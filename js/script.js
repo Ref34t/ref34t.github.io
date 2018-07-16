@@ -35,8 +35,7 @@ for (var i = 0; i < icon.length; i++) {
   });
 }
 
-// Open section by clicking on the button
-aboutButton.addEventListener("click", function() {
+function aboutEnter() {
   var tl = new TimelineMax();
   tl.to(mainSection, 0.2, {
     height: 0,
@@ -50,54 +49,155 @@ aboutButton.addEventListener("click", function() {
     opacity: 0,
     x: -1600
   });
-  tl.to(aboutSection, 0.1, {
+  tl.to(aboutSection, 0.2, {
     height: window.innerHeight
   });
-  if ((aboutButton.innerText = "Enter")) {
-    aboutButton.innerText = "Back";
+  aboutButton.innerHTML = '<span class="iconspan">Back</span>';
+  aboutButton.classList.add("back");
+}
+function aboutBack() {
+  var tl = new TimelineMax();
+  tl.to(mainSection, 0.2, {
+    height: window.innerHeight / 4,
+    x: 0,
+    opacity: 1
+  });
+  tl.to(portfolioSection, 0.2, {
+    height: window.innerHeight / 4,
+    opacity: 1,
+    x: 0
+  });
+  tl.to(contactSection, 0.2, {
+    height: window.innerHeight / 4,
+    opacity: 1,
+    x: 0
+  });
+  tl.to(aboutSection, 0.2, {
+    height: window.innerHeight / 4
+  });
+  aboutButton.innerHTML = '<span class="iconspan">Enter</span>';
+  aboutButton.classList.remove("back");
+}
+// Toggle between function of the button
+var state = false;
+aboutButton.addEventListener("click", function() {
+  if (!state) {
+    aboutEnter();
   } else {
-    aboutButton.innerText = "Enter";
+    aboutBack();
   }
+  state = !state;
 });
+
+function portfolioEnter() {
+  var tl = new TimelineMax();
+  tl.to(mainSection, 0.2, {
+    height: 0,
+    x: -1600
+  });
+  tl.to(aboutSection, 0.2, {
+    opacity: 0,
+    x: -1600,
+    height: 0
+  });
+  tl.to(contactSection, 0.2, {
+    opacity: 0,
+    x: -1600
+  });
+  tl.to(portfolioSection, 0.2, {
+    height: window.innerHeight
+  });
+  portfolioButton.innerHTML = '<span class="iconspan">Back</span>';
+  portfolioButton.classList.add("back");
+}
+function portfolioBack() {
+  var tl = new TimelineMax();
+  tl.to(mainSection, 0.2, {
+    height: window.innerHeight / 4,
+    x: 0,
+    opacity: 1
+  });
+  tl.to(portfolioSection, 0.2, {
+    height: window.innerHeight / 4,
+    opacity: 1,
+    x: 0
+  });
+  tl.to(contactSection, 0.2, {
+    height: window.innerHeight / 4,
+    opacity: 1,
+    x: 0
+  });
+  tl.to(aboutSection, 0.2, {
+    height: window.innerHeight / 4,
+    opacity: 1,
+    x: 0
+  });
+  portfolioButton.innerHTML = '<span class="iconspan">Enter</span>';
+  portfolioButton.classList.remove("back");
+}
 
 portfolioButton.addEventListener("click", function() {
-  var tl = new TimelineMax();
-  tl.to(mainSection, 0.2, {
-    height: 0,
-    x: -1600
-  });
-  tl.to(aboutSection, 0.2, {
-    opacity: 0,
-    height: 0,
-    x: -1600
-  });
-  tl.to(contactSection, 0.2, {
-    opacity: 0,
-    x: -1600
-  });
-  tl.to(portfolioSection, 0.1, {
-    height: window.innerHeight
-  });
+  if (!state) {
+    portfolioEnter();
+  } else {
+    portfolioBack();
+  }
+  state = !state;
 });
 
-contactButton.addEventListener("click", function() {
+function contactEnter() {
   var tl = new TimelineMax();
   tl.to(mainSection, 0.2, {
     height: 0,
-    opacity: 0,
     x: -1600
   });
   tl.to(aboutSection, 0.2, {
     opacity: 0,
-    height: 0,
-    x: -1600
+    x: -1600,
+    height: 0
   });
   tl.to(portfolioSection, 0.2, {
     opacity: 0,
-    height: 0,
-    x: -1600
+    x: -1600,
+    height: 0
   });
-  tl.to(contactSection, 0.1, {
+  tl.to(contactSection, 0.2, {
     height: window.innerHeight
   });
+  contactButton.innerHTML = '<span class="iconspan">Back</span>';
+  contactButton.classList.add("back");
+}
+function contactBack() {
+  var tl = new TimelineMax();
+  tl.to(mainSection, 0.2, {
+    height: window.innerHeight / 4,
+    x: 0,
+    opacity: 1
+  });
+  tl.to(portfolioSection, 0.2, {
+    height: window.innerHeight / 4,
+    opacity: 1,
+    x: 0
+  });
+  tl.to(contactSection, 0.2, {
+    height: window.innerHeight / 4,
+    opacity: 1,
+    x: 0
+  });
+  tl.to(aboutSection, 0.2, {
+    height: window.innerHeight / 4,
+    opacity: 1,
+    x: 0
+  });
+  contactButton.innerHTML = '<span class="iconspan">Enter</span>';
+  contactButton.classList.remove("back");
+}
+
+contactButton.addEventListener("click", function() {
+  if (!state) {
+    contactEnter();
+  } else {
+    contactBack();
+  }
+  state = !state;
 });
