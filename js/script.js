@@ -1,4 +1,5 @@
 // Variables Declarations
+const wrapper = document.querySelector(".wrapper");
 const mainSection = document.querySelector(".main");
 const aboutSection = document.querySelector(".about");
 const portfolioSection = document.querySelector(".portfolio");
