@@ -115,6 +115,7 @@ i {
 .link {
   min-width: 120px;
   text-align: center;
+  transition: all 0.8s;
 }
 .link :hover {
   color: var(--blue-color);
