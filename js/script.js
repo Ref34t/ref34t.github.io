@@ -1,6 +1,6 @@
 // Variables Declarations
 "use strict";
-const wrapper = document.querySelector(".wrapper");
+const section = document.querySelectorAll(".section");
 const mainSection = document.querySelector(".main");
 const aboutSection = document.querySelector(".about");
 const portfolioSection = document.querySelector(".portfolio");
@@ -13,7 +13,7 @@ const contactButton = document.querySelector(".contactbutton");
 const sectioncontenta = document.querySelector(".section-content-a");
 const sectioncontentp = document.querySelector(".section-content-p");
 const sectioncontentc = document.querySelector(".section-content-c");
-const time = 0.3;
+const time = 0.2;
 // Grapping the enter buttons in array and loop through it to get the right button and apply the mouseenter and mouseleave event
 for (var i = 0; i < icon.length; i++) {
   icon[i].addEventListener("mouseenter", function() {
@@ -53,6 +53,9 @@ function aboutEnter() {
 }
 function aboutBack() {
   var tl = new TimelineMax();
+  tl.to(aboutSection, time, {
+    height: window.innerHeight / 4
+  });
   tl.to(mainSection, time, {
     height: window.innerHeight / 4,
     x: 0,
@@ -67,9 +70,6 @@ function aboutBack() {
     height: window.innerHeight / 4,
     opacity: 1,
     x: 0
-  });
-  tl.to(aboutSection, time, {
-    height: window.innerHeight / 4
   });
   aboutButton.innerHTML = '<span class="iconspan">Enter</span>';
   aboutButton.classList.remove("back");

@@ -10,7 +10,8 @@ body {
   overflow: hidden;
 }
 ul li {
-  list-style-type: none;
+  list-style-type: circle;
+  margin: 0 1em;
 }
 
 a {
@@ -35,9 +36,9 @@ body {
 p {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: darkgrey;
-  line-height: 1.3;
-  font-weight: 400;
-  font-size: 0.8em;
+  line-height: 1.2;
+  font-weight: 300;
+  font-size: 0.75em;
 }
 .wrapper {
   width: 100vw;
@@ -83,14 +84,6 @@ p {
   font-family: var(--paragraph-font);
   color: var(--white-color);
 }
-@media (max-width: 500px) {
-  .wrapper {
-    font-size: 0.75em;
-  }
-  .section {
-    padding: 0 1em;
-  }
-}
 
 .about,
 .portfolio,
@@ -106,7 +99,7 @@ p {
   color: var(--white-color);
   border-bottom: 3px solid var(--white-color);
 }
-span,
+.iconspan,
 i {
   font-family: var(--paragraph-font);
   color: var(--white-color);
@@ -129,10 +122,47 @@ i {
 .section-content-c {
   display: none;
   padding: 20px 0;
+  color: gainsboro;
 }
 .seen {
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: space-between;
+}
+/* ABout Section */
+.section-content p {
+  padding-bottom: 10px;
+}
+.section-content p:first-of-type {
+  font-weight: 600;
+  color: var(--white-color);
+}
+.section-content h3 {
+  font-family: var(--title-font);
+  margin: 20px 0;
+  border-bottom: 3px solid var(--white-color);
+}
+.section-content ul {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--paragraph-font);
+  font-size: 0.75em;
+  line-height: 1.5;
+}
+.section-content .skills {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.section-content .skills div:first-of-type {
+  margin-right: 2em;
+}
+@media (max-width: 500px) {
+  .wrapper {
+    font-size: 0.8em;
+  }
+  .section {
+    padding: 0 1em;
+  }
 }
